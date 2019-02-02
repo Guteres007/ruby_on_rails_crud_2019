@@ -9,7 +9,9 @@ class NemovitostController < ApplicationController
     end
     
     def ulozit
-        if Nemovitost.create(nemovitost_parametry)
+
+        nemmovitost = NemovitostService.new(params) 
+        if nemmovitost.ulozit(nemovitost_parametry)
          redirect_to nemovitosti_path
         else
         render :vytvorit
@@ -21,13 +23,12 @@ class NemovitostController < ApplicationController
     end
    
     def update
-        nemovitost = Nemovitost.find(params[:id])
-       if nemovitost.update(nemovitost_parametry)
-        redirect_to nemovitosti_path
-       else
-        render :editovat
-       end
-  
+         nemmovitost = NemovitostService.new(params) 
+        if nemmovitost.update(nemovitost_parametry)
+           redirect_to nemovitosti_path
+        else
+            render :ditovat
+        end
 
     end
     private 
