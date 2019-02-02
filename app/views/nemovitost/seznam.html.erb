@@ -1,0 +1,13 @@
+<h1>nemovitosti#seznam</h1>
+<%= link_to "Vytvořit", nemovitosti_vytvorit_path%>
+<br>
+<br>
+<br>
+<br>
+<% @nemovitosti.each do |nemovitost| %>
+  <%= nemovitost.nadpis %> <br>
+  <%= nemovitost.popis %> <br>
+  <%= link_to "Edit", nemovitost_editovat_path(nemovitost)%>
+  
+  <hr>
+<% end %>
