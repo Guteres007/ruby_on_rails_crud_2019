@@ -5,6 +5,8 @@ vytvořit
 
   <%= f.fields_for :tagy do |tag| %>
         <%= tag.text_field :title %>
+        <input type="text" name="nemovitost[tagy_attributes][1][title]">
+        <input type="text" name="nemovitost[tagy_attributes][2][title]">
     <% end %>
 
   <%= f.submit "Ulozit" %>
