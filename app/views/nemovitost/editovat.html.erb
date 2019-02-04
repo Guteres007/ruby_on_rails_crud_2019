@@ -2,6 +2,11 @@ editovat
 <%= form_for @nemovitost , url: {action: :update} do |f|%>
   <%= f.text_field :nadpis %>
   <%= f.text_area :popis, size: "60x12" %>
+
+<%= f.fields_for :tagy do |tag| %>
+        <%= tag.text_field :title %>
+<% end %>
+
   <%= f.hidden_field :_method, :value => :patch %>
   <%= f.submit "Edit" %>
 <% end %>

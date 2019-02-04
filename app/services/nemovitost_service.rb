@@ -6,7 +6,8 @@ class NemovitostService
 
     def update(params)
         nemovitost = Nemovitost.find(@params[:id])
-        if nemovitost.update(params)
+        update = nemovitost.update(params)
+        if update
             true
         else
             false
@@ -14,7 +15,8 @@ class NemovitostService
     end
    
     def ulozit(params)
-       if Nemovitost.create(params)
+       nemovitost = Nemovitost.create(params)
+        if nemovitost.valid?
         true
        else
         false

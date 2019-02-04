@@ -2,5 +2,10 @@ vytvořit
 <%= form_for @nemovitost , url: {action: :ulozit} do |f|%>
   <%= f.text_field :nadpis %>
   <%= f.text_area :popis, size: "60x12" %>
+
+  <%= f.fields_for :tagy do |tag| %>
+        <%= tag.text_field :title %>
+    <% end %>
+
   <%= f.submit "Ulozit" %>
 <% end %>
